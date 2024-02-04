@@ -87,7 +87,7 @@ public class MeshCopyer : IDisposable
         clone.SetVertexBufferParams(orgmesh.vertexCount, attrs);
         clone.SetVertexBufferData(vertics, 0, 0, vertics.Length);
 
-        clone.SetIndexBufferParams(triangles.Length, IndexFormat.UInt32);
+        clone.SetIndexBufferParams(triangles.Length,triangles.Length>65535?IndexFormat.UInt32:IndexFormat.UInt16);
         clone.SetIndexBufferData(triangles, 0, 0, triangles.Length);
 
         clone.subMeshCount = subs.Length;
